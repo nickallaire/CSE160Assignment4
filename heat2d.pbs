@@ -1,0 +1,16 @@
+#!/bin/sh
+#PBS -q home 
+#PBS -N heat2d2k1
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=12:00:00
+#PBS -o heat2d2k1.dat
+#PBS -e error2d2k1.out
+#PBS -V
+#PBS -M nallaire@ucsd.edu
+#PBS -m abe
+#PBS -A ucsd-train101
+cd /home/ucsd-train101/PR4-nickallaire
+echo "./heat2d 2000 2000 100 0 0 0 0.001 heatleft1.out 4" > heat2d2k1.log
+./heat2d 2000 2000 100 0 0 0 0.001 heatleft1.out 4 >> heat2d2k1.log
+cat heatleft1.out >> heat2d2k1.log
+
